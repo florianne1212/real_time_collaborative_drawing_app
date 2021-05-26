@@ -18,14 +18,27 @@ io.on('connection', function (socket) {
         line_history.push(data.line);
         io.emit('draw_line', { line: data.line });
     });
-});
 
-io.on('clearit', function(){
-    line_history = [];
-    io.emit('clearit', true);
-})
+    socket.on('clearit', function(){
+        line_history = [];
+        io.emit('clearit', true);
+    })
+});
 
 
 server.listen(8080);
 app.use(express.static(__dirname + '/public'));
 console.log("Server running on 127.0.0.1:8080");
+
+
+// [ pos, pos_prev, color, , , , ,  ]
+/*
+{
+    pos: ..,
+    pos_prev:,
+    color: ..
+
+}
+
+line[0]
+*/
