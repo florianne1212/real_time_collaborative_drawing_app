@@ -31,16 +31,23 @@ function black() {
    color = '#000000';
 }
 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
+var mySize = 2;
+// var slider = document.getElementById("myRange");
+// var output = document.getElementById("demo");
+// output.innerHTML = slider.value; // Display the default slider value
 
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = stroke;
-} 
+// // Update the current slider value (each time you drag the slider handle)
+// slider.oninput = function() {
+//   output.innerHTML = stroke;
+//
 
 document.addEventListener("DOMContentLoaded", function () {
+   var theLineWidth = document.getElementById('theLineWidth');
+   theLineWidth.addEventListener("input",function () {
+      mySize = theLineWidth.value;
+   });
+
+
    var mouse = {
       click: false,
       move: false,
@@ -99,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
                pos: mouse.pos,
                prev: mouse.pos_prev,
                color: color,
-               stroke: stroke,
+               stroke: mySize,
             }
          });
          mouse.move = false;

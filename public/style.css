@@ -11,6 +11,17 @@ body, html{
   display: block;
 }
 
+#theLineWidthSection {
+  float: right;
+  margin-right: 170px;
+  /* margin-top: -42px;*/
+  position: relative;
+  z-index: 9999;
+  cursor: pointer;
+  outline:1px solid;
+  /*overflow: hidden;*/
+}
+
 .reload {
  top: 20px;
  left: 20px;
