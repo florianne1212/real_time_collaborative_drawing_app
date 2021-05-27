@@ -1,6 +1,7 @@
 var socket = io.connect();
 
 var color = '#000000'
+var stroke = 10
 
 function clearit() {
    socket.emit('clearit', true);
@@ -30,6 +31,14 @@ function black() {
    color = '#000000';
 }
 
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = stroke;
+} 
 
 document.addEventListener("DOMContentLoaded", function () {
    var mouse = {
@@ -66,7 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
       context.beginPath();
       context.moveTo(line.pos.x * width, line.pos.y * height);
       context.lineTo(line.prev.x * width, line.prev.y * height);
+      context.lineCap = 'round';
       context.strokeStyle = line.color;
+      context.lineWidth = line.stroke;
       context.stroke();
    });
 
@@ -88,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
                pos: mouse.pos,
                prev: mouse.pos_prev,
                color: color,
+               stroke: stroke,
             }
          });
          mouse.move = false;
