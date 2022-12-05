@@ -32,15 +32,6 @@ function black() {
 }
 
 var mySize = 2;
-// var slider = document.getElementById("myRange");
-// var output = document.getElementById("demo");
-// output.innerHTML = slider.value; // Display the default slider value
-
-// // Update the current slider value (each time you drag the slider handle)
-// slider.oninput = function() {
-//   output.innerHTML = stroke;
-//
-
 document.addEventListener("DOMContentLoaded", function () {
    var theLineWidth = document.getElementById('theLineWidth');
    theLineWidth.addEventListener("input",function () {
@@ -90,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
    socket.on('clearit', function () {
       context.clearRect(0, 0, width, height);
-      console.log("client clearit");
    })
 
 
@@ -100,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (mouse.click && mouse.move && mouse.pos_prev) {
          // send line to to the server
-         //socket.emit('draw_line', { line: [ mouse.pos, mouse.pos_prev, color ] });
          socket.emit('draw_line', {
             line: {
                pos: mouse.pos,

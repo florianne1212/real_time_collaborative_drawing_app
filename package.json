@@ -1,7 +1,6 @@
 {
-   "name": "MiniDoodle",
+   "name": "draw",
    "description": "Collaborative drawing canvas",
-   "author": "Code-and.Coffee",
    "dependencies": {
       "express": "4.x",
       "socket.io": "*"
