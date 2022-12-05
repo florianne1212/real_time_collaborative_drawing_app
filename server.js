@@ -29,15 +29,3 @@ io.on('connection', function (socket) {
 server.listen(8080);
 app.use(express.static(__dirname + '/public'));
 
-
-// [ pos, pos_prev, color, , , , ,  ]
-/*
-{
-    pos: ..,
-    pos_prev:,
-    color: ..
-
-}
-
-line[0]
-*/
